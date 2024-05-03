@@ -1,37 +1,29 @@
-import { useState, useEffect } from "react";
-import ContestantForm from "./ContestantForm";
+import { Routes, Route } from "react-router-dom";
+import GamesForm from "./GamesForm";
+import Header from "./Header";
+import Footer from "./Footer";
+import HomePage from "./Home";
+import PostsPage from "./Posts";
 
 export default function App() {
-  const [contestants, setContestants] = useState([]);
-
-  useEffect(() => {
-    getContestants();
-  }, []);
-  async function getContestants() {
-    const response = await fetch("http://localhost:8080/contestants");
-    const data = await response.json();
-    setContestants(data);
-  }
 
   return (
     <div>
-      <h1>STOP COOKING!</h1>
-      {contestants.map((contestant) => {
-        return (
-          <div key={contestant.id}>
-            <h2>
-              {contestant.name} who is {contestant.age}
-            </h2>
-            <p>{contestant.name} is bringing to the kitchen:</p>
-            <ul>
-              {contestant.ingredients.map((ingredient) => {
-                return <li key={ingredient}>{ingredient}</li>;
-              })}
-            </ul>
-          </div>
-        );
-      })}
-      <ContestantForm />
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} ></Route>
+        <Route path="/gamesform" element={<GamesForm />} ></Route>
+        <Route path="/posts" element={<PostsPage />} ></Route>
+      </Routes>
+ 
+      <iframe
+        src="https://open.spotify.com/embed/track/6AhPqnecwhUB6MsLM2fOaY?utm_source=generator"
+        width="100%"
+        height="152px"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+      <Footer />
     </div>
   );
 }

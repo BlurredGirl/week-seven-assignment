@@ -18,23 +18,26 @@ app.get("/", (request, response) => {
   response.json("This is the root route");
 });
 
-app.get("/contestants", async (request, response) => {
+app.get("/players", async (request, response) => {
   const result = await db.query(`SELECT
-  contestants.id,
-  contestants.name,
-  contestants.age,
-  ARRAY_AGG(ingredients.item) AS ingredients
-FROM contestants
-JOIN ingredients_junction ON contestants.id = ingredients_junction.contestant_id
-JOIN ingredients ON ingredients_junction.ingredient_id = ingredients.id
-GROUP BY contestants.id, contestants.name, contestants.age`);
+  players.name,
+  players.age,
+  ARRAY_AGG(games.item) AS games,
+  ARRAY_AGG(games.category) AS category
+  FROM players
+  JOIN games_junction ON players.id = games_junction.player_id
+  JOIN games ON games_junction.game_id = games.id
+  GROUP BY players.name, players.age`);
   response.json(result.rows);
 });
 
-app.post("/contestant", async (request, response) => {
+app.post("/player", async (request, response) => {
   const name = request.body.name;
   const age = request.body.age;
-  db.query(`INSERT INTO contestants (name, age) VALUES ($1, $2)`, [name, age]);
+  const game = request.body.game;
+  const category = request.body.category;
+  db.query(`INSERT INTO players (name, age) VALUES ($1, $2)`, [name, age,]);
+  db.query(`INSERT INTO games (item, category) VALUES ($1, $2)`, [game, category,]);
   response.json({ success: true });
 });
 
