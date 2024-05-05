@@ -1,7 +1,8 @@
-select
+SELECT
 players.name,
 players.age,
-ARRAY_AGG(games.item) AS games
+ARRAY_AGG(games.item) AS games,
+ARRAY_AGG(games.category) AS category
 FROM players
 JOIN games_junction ON players.id = games_junction.player_id
 JOIN games ON games_junction.game_id = games.id

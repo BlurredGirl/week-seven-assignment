@@ -1,28 +1,52 @@
--- create table if not exists players (
---   id SERIAL PRIMARY KEY,
---   name text,
---   age INT
--- );
+create table if not exists players (
+  id SERIAL PRIMARY KEY,
+  name text,
+  age INT
+);
 
--- create table if not exists games (
---   id SERIAL PRIMARY KEY,
---   item text
--- );
+create table if not exists games (
+  id SERIAL PRIMARY KEY,
+  item text,
+  category text
+);
 
--- create table if not exists games_junction (
---   player_id INT references players(id),
---   game_id INT references games(id)
--- );
+create table if not exists games_junction (
+  player_id INT references players(id),
+  game_id INT references games(id)
+);
 
--- INSERT INTO players (name, age) values
--- ('Emma', 33),
--- ('Dorian', 32);
+INSERT INTO players (name, age) VALUES
+  ('Emma', 33),
+  ('Dorian', 32),
+  ('Astarion', 36),
+  ('Gale', 35),
+  ('Link', 18),
+  ('Ganon', 42),
+  ('Aggy', 30),
+  ('Ain', 32),
+  ('Hob', 33),
+  ('Dino', 35);
 
--- INSERT INTO games (item) values
--- ('Elden Ring'),
--- ('Dark Souls 3'),
--- ('Baldurs Gate 3');
+INSERT INTO games (item, category) VALUES
+  ('Elden Ring', 'Soulslike'),
+  ('Dark Souls 3', 'Soulslike'),
+  ('The Witcher 3 Wild Hunt', 'RPG'),
+  ('Dark Souls 2', 'Soulslike'),
+  ('Dark Souls', 'Soulslike'),
+  ('Lethal Company', 'Co Op'),
+  ('Lords Of The Fallen', 'Soulslike'),
+  ('Lies Of P', 'Soulslike'),
+  ('The Legend of Zelda Twilight Princess', 'Action Adventure'),
+  ('The Legend of Zelda Majoras Mask', 'Action Adventure');
 
--- INSERT INTO games_junction (player_id, game_id) values
--- (1, 1),
--- (2, 2);
+INSERT INTO games_junction (player_id, game_id) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 4),
+  (5, 5),
+  (6, 6),
+  (7, 7),
+  (8, 8),
+  (9, 9),
+  (10, 10);
