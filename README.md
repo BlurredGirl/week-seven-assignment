@@ -21,15 +21,15 @@ Client (React)
 
 (Required)
 🎯 Please mention the requirements you met and which goals you achieved for this assignment.
-I met all user story needs and all assignment requirements, including one stretch goal (🐿️ As a user, I want to be able to add new categories (Stretch Goal))
+- I met all user story needs and all assignment requirements, including one stretch goal (🐿️ As a user, I want to be able to add new categories (Stretch Goal))
 
 
 🎯 Were there any requirements or goals that you were not quite able to achieve?
-I did not attempt a second stretch goal.
+- I did not attempt a second stretch goal.
 
 
 🎯 If so, could you please tell us what was it that you found difficult about these tasks?
-I think I would have needed to change the way that I set up my categories if I had wanted to add the second stretch goal (view all posts in a specific category on a dedicated category page).
+- I think I would have needed to change the way that I set up my categories if I had wanted to add the second stretch goal (view all posts in a specific category on a dedicated category page).
 
 
 (Optional)
