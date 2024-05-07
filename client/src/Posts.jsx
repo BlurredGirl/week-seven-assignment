@@ -8,7 +8,7 @@ export default function PostsPage() {
     }, []);
 
     async function getPlayers() {
-      const response = await fetch("http://localhost:8080/players");
+      const response = await fetch("https://week-seven-assignment.onrender.com/players");
       const data = await response.json();
       setPlayers(data);
     }

@@ -5,7 +5,7 @@ export default function GamesForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:8080/player", {
+    fetch("https://week-seven-assignment.onrender.com/player", {
       method: "POST",
       body: JSON.stringify(form),
       headers: {
